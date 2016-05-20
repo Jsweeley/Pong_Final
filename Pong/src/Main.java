@@ -4,15 +4,13 @@ import java.awt.event.*;
 
 public class Main extends JFrame {
 
-	private static final long serialVersionUID = 1L; // Eclipse added this automatically
-
 	private JPanel jContentPane = null;
 
-	private PanelPelota panel = null; // This is the panel of the game class
+	private PanelPelota panel = null; 
 
 	private PanelPelota getPanel() {
 		if (panel == null) {
-			panel = new PanelPelota(); // The panel is created
+			panel = new PanelPelota(); // Creates the panel
 		}
 		return panel;
 	}
@@ -35,13 +33,13 @@ public class Main extends JFrame {
 
 	}
 
-	// Here i'm stating the method that will send the key pressed to the game class
+	// The method that will send the key pressed to the game class
 	private void formKeyPressed(KeyEvent evt)
 	{
 		panel.keyPressed(evt);
 	}
 
-	// Here i'm stating the method that will send the key released to the game class
+	// The method that will send the key released to the game class
 	private void formKeyReleased(KeyEvent evt)
 	{
 		panel.keyReleased(evt);
