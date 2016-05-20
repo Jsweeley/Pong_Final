@@ -30,7 +30,7 @@ public class PanelPelota extends JPanel implements Runnable {
 		super.paintComponent(gc);
 
 		// Draw ball
-		gc.setColor(Color.black);
+		gc.setColor(Color.white);
 		gc.fillOval(BallX, BallY, 8,8);
 
 		// Draw ships
@@ -204,17 +204,17 @@ public class PanelPelota extends JPanel implements Runnable {
 
 				// Game over. Here you can change 6 to any value
 				// When the score reach to the value, the game will end
-				if(contPlay1==6 || contPlay2==6){
+				if(contPlay1==10 || contPlay2==10){
 					Game=false;
 					gameOver=true;
 				}
 
 				// The ball stroke with the player 1
-				if(BallX==P1X+10 && BallY>=P1Y && BallY<=(P1Y+25))
+				if(BallX==P1X+10 && BallY>=P1Y && BallY<=(P1Y+30))
 					izqDer=true;
 
 				// The ball stroke with the player 2
-				if(BallX==(P2X-5) && BallY>=P2Y && BallY<=(P2Y+25))
+				if(BallX==(P2X-5) && BallY>=P2Y && BallY<=(P2Y+30))
 					izqDer=false;
 			}
 		}
