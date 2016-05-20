@@ -1,29 +1,15 @@
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import javax.swing.*;
-
-
-
-
-
 // testing once again
-
-
-
-
-
-
-
-
-
 public class PanelPelota extends JPanel implements Runnable {
 
 private static final long serialVersionUID = 1L;
 // Positions on X and Y for the ball, player 1 and player 2
-private int BallX = 10, BallY = 100, P1X=10, P1Y=100, P2X=230, P2Y=100;
+private int BallX = 300, BallY = 150, P1X=10, P1Y=100, P2X=575, P2Y=100;
 Thread Thread;
 int Right=5; // to the right
-int izquierda= -5; //to the left
+int Left= -5; //to the left
 int Up=5; // upward
 int Down= -5; // down
 int Width, Height; // Width and height of the ball
@@ -53,7 +39,7 @@ gc.fillRect(P2X, P2Y, 10, 25);
 
 //Draw scores
 gc.drawString("Player 1: "+contPlay1, 25, 10);
-gc.drawString("Player 2: "+(contPlay2 - 1), 150, 10);
+gc.drawString("Player 2: "+contPlay2, 150, 10);
 
 if(gameOver)
 gc.drawString("Game Over", 100, 125);
@@ -97,7 +83,7 @@ public void keyReleased(KeyEvent evt)
 {
 switch(evt.getKeyCode())
 {
-// Mover Nave1
+// Move 1
 case KeyEvent.VK_W :
 player1FlagArr = false;
 break;
@@ -105,7 +91,7 @@ case KeyEvent.VK_S :
 player1FlagAba = false;
 break;
 
-// Mover nave 2
+// Move 2
 case KeyEvent.VK_UP:
 player2FlagArr=false;
 break;
@@ -122,7 +108,7 @@ if (player1FlagArr == true && P1Y >= 0)
 P1Y += Down;
 if (player1FlagAba == true && P1Y <= (this.getHeight()-25))
 P1Y += Up;
-dibujarPlayer1(P1X, P1Y);
+Player1(P1X, P1Y);
 }
 
 // Move player 2
@@ -132,17 +118,17 @@ if (player2FlagArr == true && P2Y >= 0)
 P2Y += Down;
 if (player2FlagAba == true && P2Y <= (this.getHeight()-25))
 P2Y += Up;
-dibujarPlayer2(P2X, P2Y);
+Player2(P2X, P2Y);
 }
 
 // Position on Y for the player 1
-public void dibujarPlayer1(int x, int y){
+public void Player1(int x, int y){
 this.P1X=x;
 this.P1Y=y;
 repaint();
 }
 // Position on Y for the player 2
-public void dibujarPlayer2(int x, int y){
+public void Player2(int x, int y){
 this.P2X=x;
 this.P2Y=y;
 repaint();
@@ -167,8 +153,8 @@ izqDer= false;
 }
 else
 {
-// a la izquierda
-BallX += izquierda;
+//Left
+BallX += Left;
 if ( BallX <= 0)
 izqDer = true;
 }
