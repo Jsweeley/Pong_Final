@@ -14,13 +14,15 @@ public class PanelPelota extends JPanel implements Runnable {
 	int Width, Height; // Width and height of the ball
 	// Scores
 	int contPlay1=0, contPlay2=0;
-	JLabel background = new JLabel((new ImageIcon("BattleCruiser.jpg")));
+	JLabel background = new JLabel((new ImageIcon("Pictures/BattleCruiser.jpg")));
 	boolean player1FlagArr,player1FlagAba, player2FlagArr, player2FlagAba;
 	boolean Game, gameOver;
 	public PanelPelota(){
 		Game=true;
 		Thread=new Thread(this);
 		Thread.start();
+		background.setBounds(0, 0, 600, 300);
+		add(background);
 	}
 
 	// Draw ball and ships
