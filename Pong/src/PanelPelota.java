@@ -8,16 +8,15 @@ public class PanelPelota extends JPanel implements Runnable {
 	// Positions on X and Y for the ball, player 1 and player 2
 	private int BallX = 300, BallY = 150, P1X=10, P1Y=100, P2X=575, P2Y=100;
 	Thread Thread;
-	int Right=5; // to the right
-	int Left= -5; //to the left
-	int Up=5; // upward
-	int Down= -5; // down
+	int Right=10; // to the right
+	int Left= -10; //to the left
+	int Up=10; // upward
+	int Down= -10; // down
 	int Width, Height; // Width and height of the ball
 	// Scores
 	int contPlay1=0, contPlay2=0;
 	boolean player1FlagArr,player1FlagAba, player2FlagArr, player2FlagAba;
 	boolean Game, gameOver;
-
 	public PanelPelota(){
 		Game=true;
 		Thread=new Thread(this);
@@ -204,17 +203,18 @@ public class PanelPelota extends JPanel implements Runnable {
 
 				// Game over. Here you can change 6 to any value
 				// When the score reach to the value, the game will end
-				if(contPlay1==6 || contPlay2==6){
+				if(contPlay1==5 || contPlay2==5){
+					JOptionPane.showMessageDialog(null, "Game over!");
 					Game=false;
 					gameOver=true;
 				}
 
 				// The ball stroke with the player 1
-				if(BallX==P1X+10 && BallY>=P1Y && BallY<=(P1Y+25))
+				if(BallX==P1X+10 && BallY>=P1Y && BallY<=(P1Y+30))
 					izqDer=true;
 
 				// The ball stroke with the player 2
-				if(BallX==(P2X-5) && BallY>=P2Y && BallY<=(P2Y+25))
+				if(BallX==(P2X-5) && BallY>=P2Y && BallY<=(P2Y+30))
 					izqDer=false;
 			}
 		}
