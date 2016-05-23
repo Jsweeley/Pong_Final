@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Main extends JFrame {
-
+ImageIcon BattleCruiser;
 private static final long serialVersionUID = 1L; // Eclipse added this automatically
 
 private JPanel jContentPane = null;
@@ -61,6 +61,7 @@ this.setMinimumSize(new Dimension(600, 300));
 this.setMaximumSize(new Dimension(600, 300));
 this.setContentPane(getJContentPane());
 this.setTitle("Pong");
+
 }
 
 /**
@@ -73,6 +74,7 @@ if (jContentPane == null) {
 jContentPane = new JPanel();
 jContentPane.setLayout(new BorderLayout());
 jContentPane.add(getPanel(), BorderLayout.CENTER);
+jContentPane.set
 }
 return jContentPane;
 }
