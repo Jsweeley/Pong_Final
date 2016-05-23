@@ -15,6 +15,8 @@ public class PanelPelota extends JPanel implements Runnable {
 	int Width, Height; // Width and height of the ball
 	// Scores
 	int contPlay1=0, contPlay2=0;
+	//ImageIcon icon = new ImageIcon("BattleCruiser.jpg");
+	JLabel background = new JLabel((new ImageIcon("BattleCruiser.jpg")));
 	boolean player1FlagArr,player1FlagAba, player2FlagArr, player2FlagAba;
 	boolean Game, gameOver;
 	public PanelPelota(){

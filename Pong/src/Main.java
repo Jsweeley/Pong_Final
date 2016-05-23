@@ -66,6 +66,7 @@ public class Main extends JFrame {
 		}
 		return jContentPane;
 	}
+
 	private void initialize() {
 		this.setResizable(false);
 		this.setBounds(new Rectangle(312, 184, 250, 250)); // Position on the desktop
