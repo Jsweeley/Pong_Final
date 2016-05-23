@@ -11,8 +11,8 @@ import javax.swing.SwingUtilities;
 
 public class Main extends JFrame {
 
-ImageIcon BattleCruiser;
-private static final long serialVersionUID = 1L; // Eclipse added this automatically
+	ImageIcon BattleCruiser;
+	private static final long serialVersionUID = 1L; // Eclipse added this automatically
 
 
 	private JPanel jContentPane = null;
@@ -57,35 +57,15 @@ private static final long serialVersionUID = 1L; // Eclipse added this automatic
 		panel.keyReleased(evt);
 	}
 
-/**
-* This method initializes this
-*
-* @return void
-*/
-/*private void initialize() {
-this.setResizable(false);
-this.setBounds(new Rectangle(312, 184, 250, 250)); // Position on the desktop
-this.setMinimumSize(new Dimension(600, 300));
-this.setMaximumSize(new Dimension(600, 300));
-this.setContentPane(getJContentPane());
-this.setTitle("Pong");*/
-	{
-}
-
-/**
-* This method initializes jContentPane
-*
-* @return javax.swing.JPanel
-*/
-private JPanel getJContentPane() {
-if (jContentPane == null) {
-jContentPane = new JPanel();
-jContentPane.setLayout(new BorderLayout());
-jContentPane.add(getPanel(), BorderLayout.CENTER);
-//jContentPane.set
-}
-return jContentPane;
-}
+	private JPanel getJContentPane() {
+		if (jContentPane == null) {
+			jContentPane = new JPanel();
+			jContentPane.setLayout(new BorderLayout());
+			jContentPane.add(getPanel(), BorderLayout.CENTER);
+			//jContentPane.set
+		}
+		return jContentPane;
+	}
 	private void initialize() {
 		this.setResizable(false);
 		this.setBounds(new Rectangle(312, 184, 250, 250)); // Position on the desktop
