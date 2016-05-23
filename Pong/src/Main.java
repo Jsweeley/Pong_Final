@@ -82,6 +82,7 @@ if (jContentPane == null) {
 jContentPane = new JPanel();
 jContentPane.setLayout(new BorderLayout());
 jContentPane.add(getPanel(), BorderLayout.CENTER);
+
 //jContentPane.set
 }
 return jContentPane;
