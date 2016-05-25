@@ -6,12 +6,14 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+import java.awt.Color;
 
 public class Main extends JFrame {
 
-ImageIcon BattleCruiser;
+JLabel background = new JLabel((new ImageIcon("BattleCruiser.jpg")));
 private static final long serialVersionUID = 1L; // Eclipse added this automatically
 
 
@@ -30,6 +32,7 @@ private static final long serialVersionUID = 1L; // Eclipse added this automatic
 
 	public Main() {
 		super();
+		setBackground(new Color(248, 248, 255));
 		initialize();
 		// Listeners for the keyboard
 		this.addKeyListener(new KeyAdapter() {
@@ -82,6 +85,9 @@ if (jContentPane == null) {
 jContentPane = new JPanel();
 jContentPane.setLayout(new BorderLayout());
 jContentPane.add(getPanel(), BorderLayout.CENTER);
+getContentPane().add(background);
+jContentPane.setBackground(Color.BLACK);
+
 
 //jContentPane.set
 }
@@ -90,8 +96,8 @@ return jContentPane;
 	private void initialize() {
 		this.setResizable(false);
 		this.setBounds(new Rectangle(312, 184, 250, 250)); // Position on the desktop
-		this.setMinimumSize(new Dimension(600, 300));
-		this.setMaximumSize(new Dimension(600, 300));
+		this.setMinimumSize(new Dimension(1200, 600));
+		this.setMaximumSize(new Dimension(1200, 600));
 		this.setContentPane(getJContentPane());
 		this.setTitle("Pong");
 	}

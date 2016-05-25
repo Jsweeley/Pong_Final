@@ -31,7 +31,7 @@ public class PanelPelota extends JPanel implements Runnable {
 		super.paintComponent(gc);
 
 		// Draw ball
-		gc.setColor(Color.black);
+		gc.setColor(Color.white);
 		gc.fillOval(BallX, BallY, 8,8);
 
 		// Draw ships
