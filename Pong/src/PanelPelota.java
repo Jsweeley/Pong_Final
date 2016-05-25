@@ -5,7 +5,7 @@ public class PanelPelota extends JPanel implements Runnable {
 
 	private static final long serialVersionUID = 1L;
 	// Positions on X and Y for the ball, player 1 and player 2
-	private int BallX = 600, BallY = 150, P1X=10, P1Y=100, P2X=1175, P2Y=100;
+	private int BallX = 600, BallY = 150, P1X=10, P1Y=100, P2X=575, P2Y=100;
 	Thread Thread;
 	int Right = 10; // to the right
 	int Left = -10; //to the left
@@ -33,8 +33,8 @@ public class PanelPelota extends JPanel implements Runnable {
 		gc.fillOval(BallX, BallY, 12, 12);
 
 		// Draw ships
-		gc.fillRect(P1X, P1Y, 10, 75);
-		gc.fillRect(P2X, P2Y, 10, 75);
+		gc.fillRect(P1X, P1Y, 10, 50);
+		gc.fillRect(P2X, P2Y, 10, 50);
 
 		//Draw scores
 		gc.drawString("Player 1: "+contPlay1, 25, 10);
@@ -209,11 +209,11 @@ public class PanelPelota extends JPanel implements Runnable {
 				}
 
 				// The ball stroke with the player 1
-				if(BallX == P1X+10 && BallY >= P1Y && BallY <= (P1Y+80))
+				if(BallX == P1X+10 && BallY >= P1Y && BallY <= (P1Y + 55))
 					izqDer = true;
 
 				// The ball stroke with the player 2
-				if(BallX == (P2X-10) && BallY >= P2Y && BallY <= (P2Y+80))
+				if(BallX == (P2X-5) && BallY >= P2Y && BallY <= (P2Y + 55))
 					izqDer = false;
 			}
 		}
