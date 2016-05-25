@@ -1,28 +1,26 @@
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import javax.swing.*;
-// testing once again
 public class PanelPelota extends JPanel implements Runnable {
 
 	private static final long serialVersionUID = 1L;
 	// Positions on X and Y for the ball, player 1 and player 2
 	private int BallX = 300, BallY = 150, P1X=10, P1Y=100, P2X=575, P2Y=100;
 	Thread Thread;
-	int Right=10; // to the right
-	int Left= -10; //to the left
-	int Up=10; // upward
-	int Down= -10; // down
+	int Right = 20; // to the right
+	int Left = -20; //to the left
+	int Up = 20; // upward
+	int Down = -20; // down
 	int Width, Height; // Width and height of the ball
 	// Scores
 	int contPlay1=0, contPlay2=0;
-	//ImageIcon icon = new ImageIcon("BattleCruiser.jpg");
-	JLabel background = new JLabel((new ImageIcon("BattleCruiser.jpg")));
 	boolean player1FlagArr,player1FlagAba, player2FlagArr, player2FlagAba;
 	boolean Game, gameOver;
 	public PanelPelota(){
 		Game=true;
 		Thread=new Thread(this);
 		Thread.start();
+	
 	}
 
 	// Draw ball and ships
@@ -203,7 +201,6 @@ public class PanelPelota extends JPanel implements Runnable {
 				if ( BallX == 0)
 					contPlay2++;
 
-				// Game over. Here you can change 6 to any value
 				// When the score reach to the value, the game will end
 				if(contPlay1==5 || contPlay2==5){
 					JOptionPane.showMessageDialog(null, "Game over!");

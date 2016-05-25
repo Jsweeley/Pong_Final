@@ -17,6 +17,7 @@ JLabel background = new JLabel((new ImageIcon("BattleCruiser.jpg")));
 private static final long serialVersionUID = 1L; // Eclipse added this automatically
 
 
+
 	private JPanel jContentPane = null;
 
 
@@ -85,7 +86,6 @@ if (jContentPane == null) {
 jContentPane = new JPanel();
 jContentPane.setLayout(new BorderLayout());
 jContentPane.add(getPanel(), BorderLayout.CENTER);
-getContentPane().add(background);
 jContentPane.setBackground(Color.BLACK);
 
 
@@ -93,6 +93,9 @@ jContentPane.setBackground(Color.BLACK);
 }
 return jContentPane;
 }
+	
+	
+
 	private void initialize() {
 		this.setResizable(false);
 		this.setBounds(new Rectangle(312, 184, 250, 250)); // Position on the desktop
