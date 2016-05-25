@@ -5,7 +5,7 @@ public class PanelPelota extends JPanel implements Runnable {
 
 	private static final long serialVersionUID = 1L;
 	// Positions on X and Y for the ball, player 1 and player 2
-	private int BallX = 600, BallY = 150, P1X=10, P1Y=100, P2X=575, P2Y=100;
+	private int BallX = 300, BallY = 150, P1X=10, P1Y=100, P2X=575, P2Y=100;
 	Thread Thread;
 	int Right = 10; // to the right
 	int Left = -10; //to the left
