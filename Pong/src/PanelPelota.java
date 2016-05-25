@@ -5,12 +5,12 @@ public class PanelPelota extends JPanel implements Runnable {
 
 	private static final long serialVersionUID = 1L;
 	// Positions on X and Y for the ball, player 1 and player 2
-	private int BallX = 300, BallY = 150, P1X=10, P1Y=100, P2X=1175, P2Y=100;
+	private int BallX = 600, BallY = 150, P1X=10, P1Y=100, P2X=1175, P2Y=100;
 	Thread Thread;
-	int Right = 20; // to the right
-	int Left = -20; //to the left
-	int Up = 20; // upward
-	int Down = -20; // down
+	int Right = 10; // to the right
+	int Left = -10; //to the left
+	int Up = 10; // upward
+	int Down = -10; // down
 	int Width, Height; // Width and height of the ball
 	// Scores
 	int contPlay1=0, contPlay2=0;
@@ -30,7 +30,7 @@ public class PanelPelota extends JPanel implements Runnable {
 
 		// Draw ball
 		gc.setColor(Color.white);
-		gc.fillOval(BallX, BallY, 8,8);
+		gc.fillOval(BallX, BallY, 12, 12);
 
 		// Draw ships
 		gc.fillRect(P1X, P1Y, 10, 75);
@@ -49,8 +49,8 @@ public class PanelPelota extends JPanel implements Runnable {
 	{
 		BallX= nx;
 		BallY= ny;
-		this.Width=this.getWidth();
-		this.Height=this.getHeight();
+		this.Width = this.getWidth();
+		this.Height = this.getHeight();
 		repaint();
 	}
 
@@ -135,8 +135,8 @@ public class PanelPelota extends JPanel implements Runnable {
 
 	public void run() {
 		// TODO Auto-generated method stub
-		boolean izqDer=false;
-		boolean arrAba=false;
+		boolean izqDer = false;
+		boolean arrAba = false;
 
 		while(true){
 
@@ -202,19 +202,19 @@ public class PanelPelota extends JPanel implements Runnable {
 					contPlay2++;
 
 				// When the score reach to the value, the game will end
-				if(contPlay1==5 || contPlay2==5){
+				if(contPlay1 == 5 || contPlay2 == 5){
 					JOptionPane.showMessageDialog(null, "Game over!");
-					Game=false;
-					gameOver=true;
+					Game = false;
+					gameOver = true;
 				}
 
 				// The ball stroke with the player 1
-				if(BallX==P1X+10 && BallY>=P1Y && BallY<=(P1Y+30))
-					izqDer=true;
+				if(BallX == P1X+10 && BallY >= P1Y && BallY <= (P1Y+80))
+					izqDer = true;
 
 				// The ball stroke with the player 2
-				if(BallX==(P2X-5) && BallY>=P2Y && BallY<=(P2Y+30))
-					izqDer=false;
+				if(BallX == (P2X-10) && BallY >= P2Y && BallY <= (P2Y+80))
+					izqDer = false;
 			}
 		}
 	}

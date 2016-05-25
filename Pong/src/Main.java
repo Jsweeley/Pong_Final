@@ -13,7 +13,6 @@ import java.awt.Color;
 
 public class Main extends JFrame {
 
-JLabel background = new JLabel((new ImageIcon("BattleCruiser.jpg")));
 private static final long serialVersionUID = 1L; // Eclipse added this automatically
 
 
@@ -61,26 +60,6 @@ private static final long serialVersionUID = 1L; // Eclipse added this automatic
 		panel.keyReleased(evt);
 	}
 
-/**
-* This method initializes this
-*
-* @return void
-*/
-/*private void initialize() {
-this.setResizable(false);
-this.setBounds(new Rectangle(312, 184, 250, 250)); // Position on the desktop
-this.setMinimumSize(new Dimension(600, 300));
-this.setMaximumSize(new Dimension(600, 300));
-this.setContentPane(getJContentPane());
-this.setTitle("Pong");*/
-	{
-}
-
-/**
-* This method initializes jContentPane
-*
-* @return javax.swing.JPanel
-*/
 private JPanel getJContentPane() {
 if (jContentPane == null) {
 jContentPane = new JPanel();
