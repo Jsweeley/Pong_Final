@@ -11,7 +11,6 @@ import javax.swing.SwingUtilities;
 
 public class Main extends JFrame {
 
-	ImageIcon BattleCruiser;
 	private static final long serialVersionUID = 1L; // Eclipse added this automatically
 
 

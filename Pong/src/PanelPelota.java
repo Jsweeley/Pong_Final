@@ -7,22 +7,20 @@ public class PanelPelota extends JPanel implements Runnable {
 	// Positions on X and Y for the ball, player 1 and player 2
 	private int BallX = 300, BallY = 150, P1X=10, P1Y=100, P2X=575, P2Y=100;
 	Thread Thread;
-	int Right=10; // to the right
-	int Left= -10; //to the left
-	int Up=10; // upward
-	int Down= -10; // down
+	int Right = 20; // to the right
+	int Left = -20; //to the left
+	int Up = 20; // upward
+	int Down = -20; // down
 	int Width, Height; // Width and height of the ball
 	// Scores
 	int contPlay1=0, contPlay2=0;
-	JLabel background = new JLabel((new ImageIcon("Pictures/BattleCruiser.jpg")));
 	boolean player1FlagArr,player1FlagAba, player2FlagArr, player2FlagAba;
 	boolean Game, gameOver;
 	public PanelPelota(){
 		Game=true;
 		Thread=new Thread(this);
 		Thread.start();
-		background.setBounds(0, 0, 600, 300);
-		add(background);
+	
 	}
 
 	// Draw ball and ships
@@ -31,7 +29,7 @@ public class PanelPelota extends JPanel implements Runnable {
 		super.paintComponent(gc);
 
 		// Draw ball
-		gc.setColor(Color.black);
+		gc.setColor(Color.white);
 		gc.fillOval(BallX, BallY, 8,8);
 
 		// Draw ships
@@ -203,7 +201,6 @@ public class PanelPelota extends JPanel implements Runnable {
 				if ( BallX == 0)
 					contPlay2++;
 
-				// Game over. Here you can change 6 to any value
 				// When the score reach to the value, the game will end
 				if(contPlay1==5 || contPlay2==5){
 					JOptionPane.showMessageDialog(null, "Game over!");
