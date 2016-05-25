@@ -7,8 +7,8 @@ public class PanelPelota extends JPanel implements Runnable {
 	// Positions on X and Y for the ball, player 1 and player 2
 	private int BallX = 300, BallY = 150, P1X=10, P1Y=100, P2X=1175, P2Y=100;
 	Thread Thread;
-	int Right = 20; // to the right
-	int Left = -20; //to the left
+	int Right = 5; // to the right
+	int Left = -5; //to the left
 	int Up = 20; // upward
 	int Down = -20; // down
 	int Width, Height; // Width and height of the ball
