@@ -33,8 +33,8 @@ public class PanelPelota extends JPanel implements Runnable {
 		gc.fillOval(BallX, BallY, 8,8);
 
 		// Draw ships
-		gc.fillRect(P1X, P1Y, 10, 25);
-		gc.fillRect(P2X, P2Y, 10, 25);
+		gc.fillRect(P1X, P1Y, 10, 75);
+		gc.fillRect(P2X, P2Y, 10, 75);
 
 		//Draw scores
 		gc.drawString("Player 1: "+contPlay1, 25, 10);
