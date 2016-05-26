@@ -78,8 +78,8 @@ return jContentPane;
 	private void initialize() {
 		this.setResizable(false);
 		this.setBounds(new Rectangle(312, 184, 250, 250)); // Position on the desktop
-		this.setMinimumSize(new Dimension(1200, 600));
-		this.setMaximumSize(new Dimension(1200, 600));
+		this.setMinimumSize(new Dimension(600, 300));
+		this.setMaximumSize(new Dimension(600, 300));
 		this.setContentPane(getJContentPane());
 		this.setTitle("Pong");
 	}
