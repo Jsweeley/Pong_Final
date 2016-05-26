@@ -16,7 +16,7 @@ public class PanelPelota extends JPanel implements Runnable {
 	int Width, Height; // Width and height of the ball
 	// Scores
 	int contPlay1=0, contPlay2=0;
-	boolean player1FlagArr,player1FlagAba, player2FlagArr, player2FlagAba;
+	boolean player1FlagUp1,player1FlagUp, player2FlagUp1, player2FlagUp;
 	boolean Game, gameOver;
 	public PanelPelota(){
 		Game=true;
@@ -63,18 +63,18 @@ public class PanelPelota extends JPanel implements Runnable {
 		{
 		// Move ship 1
 		case KeyEvent.VK_W :
-			player1FlagArr = true;
+			player1FlagUp1 = true;
 			break;
 		case KeyEvent.VK_S :
-			player1FlagAba = true;
+			player1FlagUp1 = true;
 			break;
 
 			// Move ship 2
 		case KeyEvent.VK_UP:
-			player2FlagArr=true;
+			player2FlagUp1=true;
 			break;
 		case KeyEvent.VK_DOWN:
-			player2FlagAba=true;
+			player2FlagUp1=true;
 			break;
 		}
 	}
@@ -86,18 +86,18 @@ public class PanelPelota extends JPanel implements Runnable {
 		{
 		// Move 1
 		case KeyEvent.VK_W :
-			player1FlagArr = false;
+			player1FlagUp1 = false;
 			break;
 		case KeyEvent.VK_S :
-			player1FlagAba = false;
+			player1FlagUp1 = false;
 			break;
 
 			// Move 2
 		case KeyEvent.VK_UP:
-			player2FlagArr=false;
+			player2FlagUp1=false;
 			break;
 		case KeyEvent.VK_DOWN:
-			player2FlagAba=false;
+			player2FlagUp1=false;
 			break;
 		}
 	}
@@ -105,9 +105,9 @@ public class PanelPelota extends JPanel implements Runnable {
 	// Move player 1
 	public void moverPlayer1()
 	{
-		if (player1FlagArr == true && P1Y >= 0)
+		if (player1FlagUp1 == true && P1Y >= 0)
 			P1Y += Down;
-		if (player1FlagAba == true && P1Y <= (this.getHeight()-25))
+		if (player1FlagUp1 == true && P1Y <= (this.getHeight()-25))
 			P1Y += Up;
 		Player1(P1X, P1Y);
 	}
@@ -115,9 +115,9 @@ public class PanelPelota extends JPanel implements Runnable {
 	// Move player 2
 	public void moverPlayer2()
 	{
-		if (player2FlagArr == true && P2Y >= 0)
+		if (player2FlagUp1 == true && P2Y >= 0)
 			P2Y += Down;
-		if (player2FlagAba == true && P2Y <= (this.getHeight()-25))
+		if (player2FlagUp1 == true && P2Y <= (this.getHeight()-25))
 			P2Y += Up;
 		Player2(P2X, P2Y);
 	}
