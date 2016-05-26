@@ -1,7 +1,9 @@
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import javax.swing.*;
-public class PanelPelota extends JPanel implements Runnable {
+public class PanelPelota extends JPanel implements Runnable/*, ActionListener*/ {
 
 	private static final long serialVersionUID = 1L;
 	// Positions on X and Y for the ball, player 1 and player 2
@@ -12,15 +14,22 @@ public class PanelPelota extends JPanel implements Runnable {
 	int Up = 10; // upward
 	int Down = -10; // down
 	int Width, Height; // Width and height of the ball
+	int delay = 0;
+	Timer tim;
+	JLabel l;
+	int i = 0;
 	// Scores
 	int contPlay1=0, contPlay2=0;
 	boolean player1FlagArr,player1FlagAba, player2FlagArr, player2FlagAba;
 	boolean Game, gameOver;
 	public PanelPelota(){
-		Game=true;
-		Thread=new Thread(this);
+		Game = true;
+		Thread = new Thread(this);
 		Thread.start();
-	
+		/*delay = 1000;
+		tim = new Timer(delay, this);
+		tim.start();*/
+
 	}
 
 	// Draw ball and ships
@@ -39,6 +48,7 @@ public class PanelPelota extends JPanel implements Runnable {
 		//Draw scores
 		gc.drawString("Player 1: "+contPlay1, 25, 10);
 		gc.drawString("Player 2: "+contPlay2, 150, 10);
+		gc.drawString("The time is " + i, 275, 10);
 
 		if(gameOver)
 			gc.drawString("Game Over", 100, 125);
@@ -47,13 +57,27 @@ public class PanelPelota extends JPanel implements Runnable {
 	// Positions on X and Y for the ball
 	public void DrawBall (int nx, int ny)
 	{
-		BallX= nx;
-		BallY= ny;
+		BallX = nx;
+		BallY = ny;
 		this.Width = this.getWidth();
 		this.Height = this.getHeight();
 		repaint();
 	}
+	/*public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		Object obj = e.getSource();
+		if(obj == tim){
+			i++;
+		if(i >= 15 && i <= 17){
+			Right++;
+			Left--;
+			Down--;
+			Up++;
+		}*/
+			
+	/*	}
 
+	}*/
 	// Here we receive from the game container class the key pressed
 	public void keyPressed(KeyEvent evt)
 	{
@@ -154,7 +178,7 @@ public class PanelPelota extends JPanel implements Runnable {
 				{
 					//Left
 					BallX += Left;
-					if ( BallX <= 0)
+					if ( BallX <= 8)
 						izqDer = true;
 				}
 
@@ -198,7 +222,7 @@ public class PanelPelota extends JPanel implements Runnable {
 					contPlay1++;
 
 				// The score of the player 2 increase
-				if ( BallX == 0)
+				if ( BallX <= 8)
 					contPlay2++;
 
 				// When the score reach to the value, the game will end
@@ -209,14 +233,24 @@ public class PanelPelota extends JPanel implements Runnable {
 				}
 
 				// The ball stroke with the player 1
-				if(BallX == P1X+10 && BallY >= P1Y && BallY <= (P1Y + 55))
+				if(BallX == P1X+10 && BallY >= P1Y && BallY <= (P1Y + 60))
 					izqDer = true;
+				/*Up = Up + 1;
+				Down = Down - 1;
+				Left = Left - 1;
+				Right = Right + 1;*/
 
 				// The ball stroke with the player 2
-				if(BallX == (P2X-5) && BallY >= P2Y && BallY <= (P2Y + 55))
+				if(BallX == (P2X-15) && BallY >= P2Y && BallY <= (P2Y + 60))
 					izqDer = false;
+				/*Up = Up + 1;
+				Down = Down - 1;
+				Left = Left - 1;
+				Right = Right + 1;*/
 			}
 		}
 	}
+
+
 
 }
