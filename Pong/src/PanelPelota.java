@@ -137,37 +137,37 @@ public class PanelPelota extends JPanel implements Runnable {
 
 	public void run() {
 		// TODO Auto-generated method stub
-		boolean LeftandRight = false;
-		boolean UpandDown = false;
+		boolean LeftRightMethod = false;
+		boolean UpDownMethod = false;
 
 		while(true){
 
 			if(Game){
 
 				// The ball move from left to right
-				if (LeftandRight)
+				if (LeftRightMethod)
 				{
 					// Right
 					BallX += Right;
 					if (BallX >= (Width - 8))
-						LeftandRight= false;
+						LeftRightMethod = false;
 				}
 				else
 				{
 					//Left
 					BallX += Left;
 					if ( BallX <= 0)
-						LeftandRight = true;
+						LeftRightMethod = true;
 				}
 
 
 				// The ball moves from up to down
-				if (UpandDown)
+				if (UpDownMethod)
 				{
 					// Up
 					BallY += Up;
 					if (BallY >= (Height - 8))
-						UpandDown= false;
+						UpDownMethod= false;
 
 				}
 				else
@@ -175,7 +175,7 @@ public class PanelPelota extends JPanel implements Runnable {
 					// Down
 					BallY += Down;
 					if ( BallY <= 0)
-						UpandDown = true;
+						UpDownMethod = true;
 				}
 				DrawBall(BallX, BallY);
 
@@ -212,11 +212,11 @@ public class PanelPelota extends JPanel implements Runnable {
 
 				// The ball stroke with the player 1
 				if(BallX == P1X+10 && BallY >= P1Y && BallY <= (P1Y + 55))
-					LeftandRight = true;
+					LeftRightMethod = true;
 
 				// The ball stroke with the player 2
 				if(BallX == (P2X-5) && BallY >= P2Y && BallY <= (P2Y + 55))
-					LeftandRight = false;
+					LeftRightMethod = false;
 			}
 		}
 	}
