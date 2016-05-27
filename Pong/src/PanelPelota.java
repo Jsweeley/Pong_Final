@@ -68,27 +68,7 @@ public class PanelPelota extends JPanel implements Runnable, ActionListener {
 		Object obj = e.getSource();
 		if(obj == tim){
 			i++;
-			/*if(i >= 15 && i <= 17){
-			Right++;
-			Left--;
-			Down--;
-			Up++;
-
-			}
-			if(i >= 17 && i <= 24){
-				Right--;
-				Left++;
-				Down++;
-				Up--;
-			}
-			if(i >= 30){
-				Right = 15;
-				Left = -15;
-				Down = -15;
-				Up = 15;
-			}*/
 		}
-
 	}
 	// Here we receive from the game container class the key pressed
 	public void keyPressed(KeyEvent evt)
@@ -261,7 +241,4 @@ public class PanelPelota extends JPanel implements Runnable, ActionListener {
 			}
 		}
 	}
-
-
-
 }
