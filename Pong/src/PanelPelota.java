@@ -3,7 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import javax.swing.*;
-public class PanelPelota extends JPanel implements Runnable/*, ActionListener*/ {
+public class PanelPelota extends JPanel implements Runnable, ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	// Positions on X and Y for the ball, player 1 and player 2
@@ -26,9 +26,9 @@ public class PanelPelota extends JPanel implements Runnable/*, ActionListener*/ 
 		Game = true;
 		Thread = new Thread(this);
 		Thread.start();
-		/*delay = 1000;
+		delay = 1000;
 		tim = new Timer(delay, this);
-		tim.start();*/
+		tim.start();
 
 	}
 
@@ -63,21 +63,33 @@ public class PanelPelota extends JPanel implements Runnable/*, ActionListener*/ 
 		this.Height = this.getHeight();
 		repaint();
 	}
-	/*public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		Object obj = e.getSource();
 		if(obj == tim){
 			i++;
-		if(i >= 15 && i <= 17){
+			/*if(i >= 15 && i <= 17){
 			Right++;
 			Left--;
 			Down--;
 			Up++;
-		}*/
-			
-	/*	}
 
-	}*/
+			}
+			if(i >= 17 && i <= 24){
+				Right--;
+				Left++;
+				Down++;
+				Up--;
+			}
+			if(i >= 30){
+				Right = 15;
+				Left = -15;
+				Down = -15;
+				Up = 15;
+			}*/
+		}
+
+	}
 	// Here we receive from the game container class the key pressed
 	public void keyPressed(KeyEvent evt)
 	{
@@ -226,27 +238,26 @@ public class PanelPelota extends JPanel implements Runnable/*, ActionListener*/ 
 					contPlay2++;
 
 				// When the score reach to the value, the game will end
-				if(contPlay1 == 5 || contPlay2 == 5){
-					JOptionPane.showMessageDialog(null, "Game over!");
+				if(contPlay1 == 5){
+					JOptionPane.showMessageDialog(null, "Game over! Player 1 wins!");
 					Game = false;
 					gameOver = true;
 				}
+				 if(contPlay2 == 5){
+					 JOptionPane.showMessageDialog(null, "Game over! Player 2 wins!");
+						Game = false;
+						gameOver = true;
+				 }
 
 				// The ball stroke with the player 1
 				if(BallX == P1X+10 && BallY >= P1Y && BallY <= (P1Y + 60))
 					izqDer = true;
-				/*Up = Up + 1;
-				Down = Down - 1;
-				Left = Left - 1;
-				Right = Right + 1;*/
+				
 
 				// The ball stroke with the player 2
 				if(BallX == (P2X-15) && BallY >= P2Y && BallY <= (P2Y + 60))
 					izqDer = false;
-				/*Up = Up + 1;
-				Down = Down - 1;
-				Left = Left - 1;
-				Right = Right + 1;*/
+				
 			}
 		}
 	}
