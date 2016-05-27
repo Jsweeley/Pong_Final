@@ -171,45 +171,46 @@ public class PanelPelota extends JPanel implements Runnable, ActionListener {
 
 	public void run() {
 		// TODO Auto-generated method stub
-		boolean izqDer = false;
-		boolean arrAba = false;
+		boolean LeftRightMethod = false;
+		boolean UpDownMethod = false;
 
 		while(true){
 
 			if(Game){
 
 				// The ball move from left to right
-				if (izqDer)
+				if (LeftRightMethod)
+
 				{
 					// Right
 					BallX += Right;
 					if (BallX >= (Width - 8))
-						izqDer= false;
+						LeftRightMethod = false;
 				}
 				else
 				{
 					//Left
 					BallX += Left;
-					if ( BallX <= 8)
-						izqDer = true;
+					if ( BallX <= 0)
+						LeftRightMethod = true;
 				}
 
 
 				// The ball moves from up to down
-				if (arrAba)
+
+				if (UpDownMethod)
 				{
 					// Up
 					BallY += Up;
 					if (BallY >= (Height - 8))
-						arrAba= false;
-
+						UpDownMethod= false;
 				}
 				else
 				{
 					// Down
 					BallY += Down;
 					if ( BallY <= 0)
-						arrAba = true;
+						UpDownMethod = true;
 				}
 				DrawBall(BallX, BallY);
 
@@ -243,20 +244,19 @@ public class PanelPelota extends JPanel implements Runnable, ActionListener {
 					Game = false;
 					gameOver = true;
 				}
-				 if(contPlay2 == 5){
-					 JOptionPane.showMessageDialog(null, "Game over! Player 2 wins!");
-						Game = false;
-						gameOver = true;
-				 }
+				if(contPlay2 == 5){
+					JOptionPane.showMessageDialog(null, "Game over! Player 2 wins!");
+					Game = false;
+					gameOver = true;
+				}
 
 				// The ball stroke with the player 1
-				if(BallX == P1X+10 && BallY >= P1Y && BallY <= (P1Y + 60))
-					izqDer = true;
-				
+				if(BallX == P1X+10 && BallY >= P1Y && BallY <= (P1Y + 55))
+					LeftRightMethod = true;
 
 				// The ball stroke with the player 2
-				if(BallX == (P2X-15) && BallY >= P2Y && BallY <= (P2Y + 60))
-					izqDer = false;
+				if(BallX == (P2X-5) && BallY >= P2Y && BallY <= (P2Y + 55))
+					LeftRightMethod = false;
 				
 			}
 		}
