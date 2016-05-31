@@ -3,7 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import javax.swing.*;
-public class PanelPelota extends JPanel implements Runnable, ActionListener {
+public class Ball extends JPanel implements Runnable, ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	// Positions on X and Y for the ball, player 1 and player 2
@@ -20,9 +20,9 @@ public class PanelPelota extends JPanel implements Runnable, ActionListener {
 	int i = 0;
 	// Scores
 	int contPlay1=0, contPlay2=0;
-	boolean player1FlagArr,player1FlagAba, player2FlagArr, player2FlagAba;
+	boolean player1Up,player1Down, player2Up, player2Down;
 	boolean Game, gameOver;
-	public PanelPelota(){
+	public Ball(){
 		Game = true;
 		Thread = new Thread(this);
 		Thread.start();
@@ -77,18 +77,18 @@ public class PanelPelota extends JPanel implements Runnable, ActionListener {
 		{
 		// Move ship 1
 		case KeyEvent.VK_W :
-			player1FlagArr = true;
+			player1Up = true;
 			break;
 		case KeyEvent.VK_S :
-			player1FlagAba = true;
+			player1Down = true;
 			break;
 
 			// Move ship 2
 		case KeyEvent.VK_UP:
-			player2FlagArr=true;
+			player2Up=true;
 			break;
 		case KeyEvent.VK_DOWN:
-			player2FlagAba=true;
+			player2Down=true;
 			break;
 		}
 	}
@@ -100,18 +100,18 @@ public class PanelPelota extends JPanel implements Runnable, ActionListener {
 		{
 		// Move 1
 		case KeyEvent.VK_W :
-			player1FlagArr = false;
+			player1Up = false;
 			break;
 		case KeyEvent.VK_S :
-			player1FlagAba = false;
+			player1Down = false;
 			break;
 
 			// Move 2
 		case KeyEvent.VK_UP:
-			player2FlagArr=false;
+			player2Up=false;
 			break;
 		case KeyEvent.VK_DOWN:
-			player2FlagAba=false;
+			player2Down=false;
 			break;
 		}
 	}
@@ -119,9 +119,9 @@ public class PanelPelota extends JPanel implements Runnable, ActionListener {
 	// Move player 1
 	public void moverPlayer1()
 	{
-		if (player1FlagArr == true && P1Y >= 0)
+		if (player1Up == true && P1Y >= 0)
 			P1Y += Down;
-		if (player1FlagAba == true && P1Y <= (this.getHeight()-25))
+		if (player1Down == true && P1Y <= (this.getHeight()-25))
 			P1Y += Up;
 		Player1(P1X, P1Y);
 	}
@@ -129,9 +129,9 @@ public class PanelPelota extends JPanel implements Runnable, ActionListener {
 	// Move player 2
 	public void moverPlayer2()
 	{
-		if (player2FlagArr == true && P2Y >= 0)
+		if (player2Up == true && P2Y >= 0)
 			P2Y += Down;
-		if (player2FlagAba == true && P2Y <= (this.getHeight()-25))
+		if (player2Down == true && P2Y <= (this.getHeight()-25))
 			P2Y += Up;
 		Player2(P2X, P2Y);
 	}

@@ -13,18 +13,14 @@ import java.awt.Color;
 
 public class Main extends JFrame {
 
-private static final long serialVersionUID = 1L; // Eclipse added this automatically
+	public JPanel jContentPane = null;
 
 
+	public Ball panel = null; 
 
-	private JPanel jContentPane = null;
-
-
-	private PanelPelota panel = null; 
-
-	private PanelPelota getPanel() {
+	public Ball getPanel() {
 		if (panel == null) {
-			panel = new PanelPelota(); // Creates the panel
+			panel = new Ball(); // Creates the panel
 		}
 		return panel;
 	}
@@ -49,33 +45,29 @@ private static final long serialVersionUID = 1L; // Eclipse added this automatic
 	}
 
 	// The method that will send the key pressed to the game class
-	private void formKeyPressed(KeyEvent evt)
+	public void formKeyPressed(KeyEvent evt)
 	{
 		panel.keyPressed(evt);
 	}
 
 	// The method that will send the key released to the game class
-	private void formKeyReleased(KeyEvent evt)
+	public void formKeyReleased(KeyEvent evt)
 	{
 		panel.keyReleased(evt);
 	}
 
-private JPanel getJContentPane() {
+public JPanel getJContentPane() {
 if (jContentPane == null) {
 jContentPane = new JPanel();
 jContentPane.setLayout(new BorderLayout());
 jContentPane.add(getPanel(), BorderLayout.CENTER);
 jContentPane.setBackground(Color.BLACK);
 
-
-//jContentPane.set
 }
 return jContentPane;
 }
 	
-	
-
-	private void initialize() {
+	public void initialize() {
 		this.setResizable(false);
 		this.setBounds(new Rectangle(312, 184, 250, 250)); // Position on the desktop
 		this.setMinimumSize(new Dimension(600, 300));
@@ -83,7 +75,6 @@ return jContentPane;
 		this.setContentPane(getJContentPane());
 		this.setTitle("Pong");
 	}
-
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
