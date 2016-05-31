@@ -219,7 +219,7 @@ public class PanelPelota extends JPanel implements Runnable, ActionListener {
 					contPlay2++;
 
 				// When the score reach to the value, the game will end
-				if(contPlay1 == 5){
+				if(contPlay1 == 1){
 					JOptionPane.showMessageDialog(null, "Game over! Player 1 wins!");
 					Game = false;
 					gameOver = true;
